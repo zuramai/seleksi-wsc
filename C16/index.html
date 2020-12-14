@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Smiley</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="app">
+		<div class="container">
+			<div id="head" class="normal">
+				<div class="pala">
+					<div class="eye1"></div>
+					<div class="eye2"></div>
+					<div class="mouth"></div>
+				</div>
+			</div>
+			<div class="buttons">
+				<button id="sad" onclick="change('sad')">:(</button>
+				<button id="normal" onclick="change('normal')">:|</button>
+				<button id="smile" onclick="change('smile')">:)</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function change(to) {
+			console.log(to)
+			let head = document.getElementById('head');
+			head.className = to;
+			
+
+		}		
+	</script>
+</body>
+</html>
