@@ -11,7 +11,11 @@
  * @since 1.0
  * @version 1.2
  */
-
+if ( ! function_exists( 'is_plugin_active' ) ) {
+    function is_plugin_active( $plugin ) {
+        return in_array( $plugin, (array) get_option( 'active_plugins', array() ) );
+    }
+}
 ?>
 
 		</div><!-- #content -->
