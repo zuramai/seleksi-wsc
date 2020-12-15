@@ -2,7 +2,7 @@
 <div id="hero">
     <div class="container h-100">
         <div class="h-100 d-flex justify-center align-items-center">
-            <h1>Kazan Museum Tour</h1>
+            <h1><?= the_title() ?></h1>
         </div>
     </div>
 </div>
@@ -14,15 +14,9 @@
         <div class="section-body">
             <div class="row">
                 <?php 
-                $query = new WP_Query([
-                    'post_per_page' => -1,
-                    'post_type' => 'post'
-                ]);
-                if($query->have_posts()):
-                while($query->have_posts()):
-                    $query->the_post();
-    
-                    echo $query->the_title;
+                if(have_posts()):
+                while(have_posts()):
+                    the_post();
                  ?>
                  <div class="col-md-4">
                      <div class="card">

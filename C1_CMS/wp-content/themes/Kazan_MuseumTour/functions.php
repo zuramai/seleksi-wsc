@@ -149,4 +149,28 @@ function disable_default_dashboard_widgets() {
 }
 add_action('wp_dashboard_setup', 'disable_default_dashboard_widgets', 999);
 
+
+// Social Icons
+
+add_action('admin_menu', 'admin_menu_init');
+add_action('admin_init', 'register_settings');
+function admin_menu_init() {
+    add_menu_page('Social Media Icon', "Social Media Icon", "manage_options",'social-media-icon','menu_page_func');
+}
+function register_settings() {
+    add_settings_section('social-media-icon', 'Social Media Settings', '', 'social-media-icon');
+    register_setting('social-media-icon', 'facebook');
+    add_settings_field('facebook', 'Facebook', 'facebook_input','facebook-input', 'social-media-icon');
+}
+function facebook_input() { ?>
+    <input type="text" name="" placeholder="Input URL" id="">
+<?php }
+function menu_page_func() {?>
+    <form action="options.php">
+        <?= do_settings_sections('social-media-icon') ?>
+        <?= settings_fields('social-media-icon') ?>
+    </form>
+<?php
+}
+
 ?>

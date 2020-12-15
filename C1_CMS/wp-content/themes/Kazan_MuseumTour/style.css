@@ -74,7 +74,52 @@ footer a {
     background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('./assets/museums/national-museum-of-the-republic-of-tatarstan-3.jpg');
     background-position: center center;
 }
+#header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #fff;
+    box-shadow: none;
+}
+#header h1 a {
+    color: #333;
+    text-decoration: none;
+}
 #hero h1 {
     font-size: 3rem;
     color: #fff;
+}
+section {
+    padding: 3rem 0;
+}
+.section-header h1 {
+    font-size: 3rem;
+}
+.card {
+    box-shadow: 2px 3px 10px #ccc;
+    margin-bottom: 2rem;
+}
+.card > img {
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+}
+.card-body {
+    padding: 1rem .5rem;
+    min-height: 100px;
+}
+.card-body .card-title {
+    font-size: 1.3rem;
+}
+.card-body .card-title a {
+    text-decoration: none;
+    color: #222;
+}
+#hero-special {
+    height: 100vh;
+}
+#hero-special h1 {
+    text-shadow: 2px 3px 10px #000;
+    color: #fff;
+    font-size: 3rem;
 }
