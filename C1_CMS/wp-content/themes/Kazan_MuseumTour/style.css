@@ -3,3 +3,78 @@ Theme Name: Kazan_MuseumTour
 Description: WSC
 Template: blankslate
 */
+
+html {
+    margin-top: 0 !important;
+}
+a {
+    transition: all .2s;
+}
+.text-right {
+    text-align: right;
+}
+#header {
+    box-shadow: 2px 5px 10px #eee;
+    padding: 1rem 0;
+}
+.menu {
+    display: flex;
+}
+.menu-item {
+    list-style: none;
+    position: relative;
+}
+.menu > .menu-item {
+    margin-left: 1rem;
+}
+.menu-item a {
+    color: #444;
+    text-decoration: none;
+}
+.menu > .menu-item > a {
+    color: #444;
+    font-size: 1.2rem;
+}
+.menu > .menu-item > a:hover {
+    color: skyblue;
+}
+.menu-item .sub-menu {
+    position: absolute;
+    min-width: 300px;
+    display: none;
+    background-color: #fff;
+   
+    box-shadow: 2px 3px 10px #eee;
+}
+.menu-item .sub-menu .menu-item {
+}
+.menu-item .sub-menu .menu-item a {
+    padding: 1rem;
+    display:block
+}
+.menu-item .sub-menu .menu-item a:hover{
+    background-color: skyblue;
+}
+.menu-item:hover .sub-menu {
+    display: block;
+}
+
+
+footer {
+    background-color: #444;
+    color: #fff;
+    padding: 1rem; 
+}
+footer a {
+    color: #fff;
+}
+#hero {
+    min-height: 400px;
+    height: 60vh;
+    background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('./assets/museums/national-museum-of-the-republic-of-tatarstan-3.jpg');
+    background-position: center center;
+}
+#hero h1 {
+    font-size: 3rem;
+    color: #fff;
+}
