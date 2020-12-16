@@ -53,7 +53,7 @@
                 <td id="total-cost">{{ workshopTotalPrice + ticketTotalPrice }},-</td>
               </tr>
               <tr>
-                <button class='btn btn-primary float-right' id="purchase" disabled>Purchase</button>
+                <button class='btn btn-primary float-right' id="purchase" @click="purchase">Purchase</button>
               </tr>
             </table>
           </div>
@@ -92,6 +92,9 @@ export default {
                 console.log(this.getHourWidth)
             });
     },
+    purchase() {
+      this.$router.go(-1)
+    }
   },
   computed: {
       getHourWidth() {

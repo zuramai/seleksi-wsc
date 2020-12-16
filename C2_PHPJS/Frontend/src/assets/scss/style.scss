@@ -135,6 +135,11 @@
 .checkbox {
     transform: scale(1.5)
 }
+.form-control {
+    padding: .5rem;
+    border-radius: .3rem;
+    border: 1px solid #ccc;
+}
 .ticket {
     flex-grow: 1;
     padding: 0 15px;
@@ -167,6 +172,20 @@
     .btn {
     float: right;
 
+    }
+}
+.alert {
+    padding: 1rem;
+    border-radius: .5rem;
+    &.alert-danger {
+        background-color: rgb(223, 83, 83);
+        color: #fff;
+        margin: 1rem 0;
+    }
+}
+#auth {
+    td {
+        padding: .5rem
     }
 }
 @media screen and (min-width: 768px) {

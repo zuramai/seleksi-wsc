@@ -7,7 +7,7 @@
             <h1>Event Booking Platform</h1>
           </div>
           <div class="col-6">
-            <button class='btn btn-primary login-btn'>Login</button>
+            <router-link  :to="{name:'auth.login'}" v-if="!$store.state.loggedIn" class='btn btn-primary login-btn'>Login</router-link>
           </div>
         </div>
       </header>

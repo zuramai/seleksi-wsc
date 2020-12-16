@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Attendee;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -24,5 +25,17 @@ class AuthController extends Controller
             'email' => $att->email,
             'token' => $att->login_token,
             ]);
+    }
+
+    public function logout(Request $request) {
+        $attendee = Attendee::where('login_token', $request->get('token'))->first();
+        if (!$attendee) {
+            return response()->json(['message' => 'Invalid token'], 401);
+        }
+
+        $attendee->login_token = null;
+        $attendee->save();
+
+        return ['message' => 'Logout success'];
     }
 }

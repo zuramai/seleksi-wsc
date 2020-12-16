@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import AuthLogin from '../views/Auth/Login.vue'
 import EventShow from '../views/Event/Show.vue'
 import EventRegister from '../views/Event/Register.vue'
 
@@ -13,6 +14,11 @@ const routes = [
     component: Home
   },
   {
+    path: '/login',
+    name: 'auth.login',
+    component: AuthLogin
+  },
+  {
     path: '/organizers/:organizerSlug/events/:eventSlug',
     name: 'event.show',
     component: EventShow
@@ -22,14 +28,6 @@ const routes = [
     name: 'event.register',
     component: EventRegister
   },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
 ]
 
 const router = new VueRouter({
