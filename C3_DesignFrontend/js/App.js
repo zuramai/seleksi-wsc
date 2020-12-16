@@ -39,7 +39,7 @@ class App {
         if(from.number == 1) {
             // ke atas
             connectToNumber = 3;
-            xFrom = from.element.offsetLeft + from.element.clientWidth/2;
+            xFrom = from.element.offsetLeft ;
             yFrom = from.element.offsetTop;
             xTo = from.element.offsetLeft  // same x as fromElement
             yTo = from.element.offsetTop - this.elementDistance - from.element.clientHeight// move to top as elementDistance px
@@ -53,8 +53,8 @@ class App {
         }else if(from.number == 3) {
             // ke atas
             connectToNumber = 1;
-            xFrom = from.element.offsetLeft + from.element.clientWidth/2;
-            yFrom = from.element.offsetTop + from.element.clientHeight;
+            xFrom = from.element.offsetLeft ;
+            yFrom = from.element.offsetTop;
             xTo = from.element.offsetLeft, // same x as fromElement  
             yTo = from.element.offsetTop + this.elementDistance + from.element.clientHeight
         }else if(from.number == 4) {
@@ -71,6 +71,7 @@ class App {
         });
         element.x = xTo;
         element.y = yTo;
+        element.id = elements.length;
         element.create()
         elements.push(element)
 

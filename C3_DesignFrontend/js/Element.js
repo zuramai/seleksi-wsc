@@ -6,6 +6,7 @@ class Elementr extends App {
         this.connections = connections;
         this.element = null;
         this.id = 1;
+        this.content = '';
     }
     create() {
         let dummy = elementDummy.cloneNode(true);
@@ -18,7 +19,7 @@ class Elementr extends App {
         this.listener()
     }
     draw() {
-        console.log('appendchil;d')
+        console.log('bisa mint')
         console.log(this.element)
         appEl.appendChild(this.element);
     }
@@ -43,5 +44,16 @@ class Elementr extends App {
                 })
             });
         });
+
+        let content = document.getElementById('content');
+        this.element.querySelector('.edit').addEventListener('click', e => {
+            content.value = this.content;    
+            document.getElementById('backdrop').style.display = "block";
+            document.getElementById('editor').style.display = "block";
+
+            localStorage.setItem('active_element', this.id);
+            console.log(this.id)
+        });
+
     }
 }
