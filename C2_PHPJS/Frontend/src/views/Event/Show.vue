@@ -7,7 +7,7 @@
             <h1>{{event.name}}</h1>
           </div>
           <div class="col-6">
-            <button class='btn btn-primary login-btn'>Register for this event</button>
+            <router-link :to="{name:'event.register', params:{organizerSlug: $route.params.organizerSlug, eventSlug: $route.params.eventSlug}}" class='btn btn-primary login-btn' id="register">Register for this event</router-link>
           </div>
         </div>
       </header>
@@ -23,12 +23,12 @@
                     </div>
                 </div>
                 <div class="timeline">
-                    <div class="sessions">
+                    <div class="sessions row">
                         <div class="session-room" v-for="room in channel.rooms" :key="room.id">
                             <div class="session" 
                                 :data-start="`${new Date(session.start).getHours()}:${new Date(session.start).getMinutes()}`" 
                                 :data-end="`${new Date(session.end).getHours()}:${new Date(session.end).getMinutes()}`"
-                                v-for="session in room.sessions" :key="session.id" :style="{left: `${getSessionOffset(session)}%`, width: `${getSessionWidth(getSessionMinutes(session))}`}"
+                                v-for="session in room.sessions" :key="session.id" :style="{left: `${getSessionOffset(session)}%`, width: `${getSessionWidth(getSessionMinutes(session))}%`}"
                                 @click="showSessionDetail(session)">
                                 {{session.title}}
                             </div>
@@ -43,8 +43,9 @@
             </div>
         </div>
       </div>
-      <session-detail :session="sessionDetail" v-if="sessionDetailShow"/>
+      <session-detail :session="sessionDetail" v-if="sessionDetailShow" v-model="sessionDetailShow"/>
     </div>
+    <div class="backdrop" v-if="sessionDetailShow"></div>
   </div>
 </template>
 

@@ -20,6 +20,7 @@
                 <td>{{session.cost}}</td>
             </tr>
         </table>
+        <div class="close"><a href="#" @click="$emit('input', false)">X</a></div>
     </div>
 </template>
 <script>
@@ -40,6 +41,13 @@ export default {
     border: 1px solid #ccc;
     width:100%;
     max-width: 1320px;
+    z-index: 10;
+    .close {
+        position: absolute;
+        top: 35px;
+        right: 35px;
+        font-size: 1.5rem;
+    }
     .title {
         margin-bottom: 1rem;
     }
