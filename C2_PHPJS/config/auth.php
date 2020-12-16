@@ -38,7 +38,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'organizers',
         ],
 
         'api' => [
@@ -66,9 +66,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'organizers' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\Organizer::class,
         ],
 
         // 'users' => [
@@ -94,7 +94,7 @@ return [
 
     'passwords' => [
         'users' => [
-            'provider' => 'users',
+            'provider' => 'organizers',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

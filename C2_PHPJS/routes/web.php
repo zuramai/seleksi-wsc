@@ -27,11 +27,11 @@ Route::prefix('auth')->group(function() {
     Route::post('logout', [AuthController::class,'logout']);
 });
 
-Route::resource('events', EventController::class);
-Route::resource('events/{event}/tickets', TicketController::class);
-Route::resource('events/{event}/sessions', SessionController::class);
-Route::resource('events/{event}/channels', ChannelController::class);
-Route::resource('events/{event}/rooms', RoomController::class);
+Route::resource('events', 'EventController');
+Route::resource('events/{event}/tickets', 'TicketController');
+Route::resource('events/{event}/sessions', 'SessionController');
+Route::resource('events/{event}/channels', 'ChannelController');
+Route::resource('events/{event}/rooms', 'RoomController');
 
 
 
