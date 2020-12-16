@@ -40,19 +40,32 @@ class Elementr extends App {
                 });
                 this.connections.push({
                     number: this.numberToConnect(numberClicked),
-                    text: `Go to ${this.numberToConnect(numberClicked)}`
+                    text: ``
                 })
             });
         });
 
         let content = document.getElementById('content');
+        let relations = document.getElementById('relations');
+
         this.element.querySelector('.edit').addEventListener('click', e => {
             content.value = this.content;    
             document.getElementById('backdrop').style.display = "block";
             document.getElementById('editor').style.display = "block";
 
             localStorage.setItem('active_element', this.id);
-            console.log(this.id)
+            console.log(this.connections)
+            relations.innerHTML = "";
+            this.connections.forEach(c => {
+                let connEl = document.createElement('input');
+                connEl.setAttribute('type', 'text');
+                connEl.setAttribute('placeholder', `Relation ${this.numberToConnect(c.number)}`);
+                connEl.value = c.text;
+                connEl.addEventListener('keydown', ev => {
+                    c.text = ev.target.value;
+                })
+                relations.appendChild(connEl)
+            })
         });
 
     }

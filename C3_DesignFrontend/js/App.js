@@ -67,7 +67,7 @@ class App {
         }
         element.connections.push({
             number: from.number,
-            text: `Go to ${from.number}`
+            text: ``
         });
         element.x = xTo;
         element.y = yTo;
