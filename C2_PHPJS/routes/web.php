@@ -23,7 +23,7 @@ use App\Http\Controllers\EventController;
 Route::get('/', [HomeController::class, "index"])->middleware('auth');
 Route::prefix('auth')->group(function() {
     Route::get('login', [AuthController::class,'login'])->name('login');
-    Route::post('login', [AuthController::class,'loginPost']);
+    Route::post('login', [AuthController::class,'login_post']);
     Route::post('logout', [AuthController::class,'logout']);
 });
 
