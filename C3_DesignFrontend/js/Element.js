@@ -23,9 +23,6 @@ class Elementr extends App {
         console.log(this.element)
         appEl.appendChild(this.element);
     }
-    addConnection() {
-
-    }
     listener() {
         this.element.querySelectorAll('.number').forEach(number => {
             number.addEventListener('click', (e) => {
@@ -69,6 +66,17 @@ class Elementr extends App {
                 relations.appendChild(connEl)
             })
         });
+        this.element.addEventListener('dragover', e => {
+            let dragged = e.target;
+            console.log(e.clientX, e.clientY)
+            e.target.style.left = e.clientX;
+        })
+        this.element.addEventListener('dragend', e => {
+            let dragged = e.target;
+            console.log(e.clientX, e.clientY)
+            e.target.style.left = e.clientX;
+            e.target.style.top = e.clientY;
+        })
 
     }
 }

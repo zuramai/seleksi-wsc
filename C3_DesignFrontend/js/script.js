@@ -31,7 +31,7 @@ function changeModeTo(to) {
     }else{
         currentPresentate = 0;
         presentation.style.display = 'block'
-
+        document.documentElement.requestFullscreen();
         app.displayPresentation(currentPresentate)
     }
 }
