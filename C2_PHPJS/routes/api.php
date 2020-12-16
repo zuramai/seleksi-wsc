@@ -20,8 +20,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function() {
     Route::get('events', 'API\EventController@index');
+    Route::get('registrations', 'API\RegistrationController@index');
     Route::get('organizers/{organizer}/events/{event}', 'API\EventController@show');
+    Route::post('organizers/{organizer}/events/{event}/registration', 'API\EventController@registration');
 
     Route::post('/login', 'API\AuthController@login');
-    Route::post('organizers/{organizer}/events/{event}/registration', 'API\EventController@registration');
+    Route::post('/logout', 'API\AuthController@logout');
 });
