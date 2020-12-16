@@ -67,7 +67,8 @@ class App {
         }
         element.connections.push({
             number: from.number,
-            text: ``
+            text: ``,
+            id: from.id
         });
         element.x = xTo;
         element.y = yTo;
@@ -78,6 +79,34 @@ class App {
 
         this.newLine({x: xFrom, y: yFrom}, {x: xTo, y: yTo});
         console.log(elements, lines)
+        return element.id;
+    }
+
+    displayPresentation(id) {
+        console.log('displaying', id)
+        let navigations = document.querySelector('.navigations');
+        navigations.innerHTML = '';
+        elements.forEach(el => {
+            if(el.id == id) {
+                console.log(el)
+                text.innerText = el.content;
+
+                el.connections.forEach((conn,index) => {
+                    let div = document.createElement('div');
+                    let btn = document.createElement('button');
+                    btn.classList.add('btn');
+                    btn.innerText = `${index+1} - ${conn.text}`
+
+                    btn.addEventListener('click', e => {
+                        console.log(conn)
+                        this.displayPresentation(conn.id)
+                    })
+
+                    div.appendChild(btn)
+                    navigations.appendChild(div)
+                })
+            }
+        })
     }
     
     numberToConnect(from) {

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <button class='change-mode' onclick="changeModeTo('presentation')">Presentation mode</button>
     <canvas id="canvas"></canvas>
     <div class='element element-wrapper' id="element-dummy" style="display:none">
         <div class="buttons">
@@ -40,6 +41,16 @@
         </form>
     </div>
     <div id="backdrop"></div>
+    <div id="presentation">
+        <div class="card">
+            <div class="card-body">
+                <div id="text"></div>
+                <div class="navigations">
+                </div>
+            </div>
+        </div>
+        <button class='change-mode' onclick="changeModeTo('editor')">Editor mode</button>
+    </div>
     <div id="app">
     </div>
     <script src="js/line.js"></script>

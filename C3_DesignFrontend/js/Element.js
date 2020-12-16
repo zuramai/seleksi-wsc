@@ -32,15 +32,17 @@ class Elementr extends App {
                 let numberClicked = e.target.getAttribute('data-number');
                 if(this.connections.some(conn => conn.number == this.numberToConnect(numberClicked))) return;
 
-                this.newElement({
+                let id = this.newElement({
                     element: this.element,
-                    number: numberClicked
+                    number: numberClicked,
+                    id:this.id // from id
                     },{
                     number: this.numberToConnect(numberClicked)
                 });
                 this.connections.push({
                     number: this.numberToConnect(numberClicked),
-                    text: ``
+                    text: ``,
+                    id
                 })
             });
         });
