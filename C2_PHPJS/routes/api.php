@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::prefix('v1')->group(function() {
+    Route::get('events', 'API\EventController@index');
+    Route::get('organizers/{organizer}/events/{event}', 'API\EventController@show');
+
+    Route::post('/login', 'API\AuthController@login');
+    Route::post('organizers/{organizer}/events/{event}/registration', 'API\EventController@registration');
+});

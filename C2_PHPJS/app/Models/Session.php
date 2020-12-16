@@ -10,4 +10,7 @@ class Session extends Model
     public function room() {
         return $this->belongsTo(Room::class);
     }
+    public function registrant() {
+        return $this->hasMany(SessionRegistration::class);
+    }
 }

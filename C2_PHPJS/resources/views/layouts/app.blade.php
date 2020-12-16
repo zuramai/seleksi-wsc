@@ -13,6 +13,7 @@
     <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
     <!-- Custom styles -->
     <link href="{{ asset('/css/custom.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('chartjs/Chart.min.css')}}">
 </head>
 
 <body>
@@ -21,7 +22,10 @@
     <span class="navbar-organizer w-100">{{Auth::user()->name}}</span>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" id="logout" href="index.html">Sign out</a>
+            <a class="nav-link" id="logout" href="" onclick="document.getElementById('logout-form').submit()">Sign out</a>
+            <form action="{{route('logout')}}" method="POST" id='logout-form'>
+                @csrf
+            </form>
         </li>
     </ul>
 </nav>
@@ -34,6 +38,7 @@
        @yield('content')
     </div>
 </div>
-
+<script src="{{asset('chartjs/Chart.min.js')}}"></script>
+@stack('scripts')
 </body>
 </html>
